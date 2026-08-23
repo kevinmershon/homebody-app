@@ -3,6 +3,13 @@
 An AI-powered avatar for your space. Runs entirely on your own machine — bring
 your own [OpenRouter](https://openrouter.ai/) API key.
 
+<p align="center">
+  <b>Demo video</b><br>
+  <a href="https://www.youtube.com/watch?v=uR9DpFVwf3Y">
+    <img src="https://img.youtube.com/vi/uR9DpFVwf3Y/0.jpg" alt="Homebody demo video">
+  </a>
+</p>
+
 ## You need
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/), running
@@ -10,10 +17,7 @@ your own [OpenRouter](https://openrouter.ai/) API key.
 - A Meta Quest 3 with the [Homebody APK](https://github.com/kevinmershon/homebody-app/releases/latest)
   sideloaded, on the same Wi-Fi network
 
-Ships with a default avatar (Cesium Man) — no download needed to get started. It
-has no bones mapped yet, though, so movement/grabbing won't work until you say
-"enter rigging mode" once connected and map them (see
-[AVATAR_SETUP.md](AVATAR_SETUP.md)). Want a different avatar entirely? Same doc.
+Ships with a default avatar (Cesium Man) — no download needed to get started.
 
 ## Setup
 
@@ -45,6 +49,16 @@ persist between runs.
 | `resources/decision-engines/` | Auto-generated, leave alone |
 | `resources/player.json` | Your own config, leave as-is unless you need it |
 | `data/`, `mempalace/` | Server state and your avatar's memory |
+
+## Rigging
+
+The default avatar has no bones mapped yet, so movement/grabbing won't work until
+you say "enter rigging mode" once connected, and map them yourself:
+
+<img src="images/cesium_man_rigging_mode.jpg" alt="Cesium Man in rigging mode" width="300">
+
+Want a different avatar entirely, or help mapping one? See
+[AVATAR_SETUP.md](AVATAR_SETUP.md).
 
 ## Troubleshooting
 
