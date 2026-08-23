@@ -71,3 +71,5 @@ Want a different avatar entirely, or help mapping one? See
 
 Questions, bugs, or want to share what your avatar said? Join the
 [Discord](https://discord.gg/v7mbmZbFXp).
+
+[Patreon](https://www.patreon.com/cw/codingandcoffee/membership) link if you want to support me.
