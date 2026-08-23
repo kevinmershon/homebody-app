@@ -1,0 +1,90 @@
+{
+  "id": "example",
+  "name": "Example",
+  "model_url": "http://{server_ip}:9393/models/Example.glb",
+  "scale": 1.0,
+  "spawn_position": {"x": 0.0, "y": 0.0, "z": 1.0},
+  "voice": {
+    "voice_model": "ara",
+    "voice_conversion": {"enabled": false},
+    "personality": "a curious, friendly companion. Describe who this character is, how they talk, and how they react to people in a few sentences -- this text goes straight into the LLM's system prompt every turn.",
+    "greeting": "Hi {player_name}! Good to see you.",
+    "idle_phrases": [
+      "What's up?",
+      "It's kinda quiet in here..."
+    ],
+    "on_player_approach": [
+      "Oh, hi!",
+      "Hey there!"
+    ]
+  },
+  "self_collision": false,
+  "arm_rest_lateral": 20,
+  "shaders": {
+    "occlusion": {
+      "skip_transparent_materials": false,
+      "skip_name_substrings": ["eye"]
+    }
+  },
+  "face_animation": {
+    "enabled": false,
+    "mesh_name": "FaceMesh",
+    "blink": {
+      "enabled": false,
+      "mesh_names": ["FaceMesh"],
+      "close_shape": "Blink",
+      "close_scale": 1.0
+    },
+    "gaze": {
+      "enabled": false,
+      "left":  {"mesh_name": "EyeL", "up_shape": "up", "down_shape": "down", "left_shape": "left", "right_shape": "right"},
+      "right": {"mesh_name": "EyeR", "up_shape": "up", "down_shape": "down", "left_shape": "left", "right_shape": "right"},
+      "max_degrees": 20,
+      "turn_speed": 4,
+      "return_speed": 2,
+      "weight_scale": 0.005
+    }
+  },
+  "bone_groups": {
+    "torso":           {"primary": "spine",       "coupled": []},
+    "hips":            {"primary": "hips",         "coupled": []},
+    "waist":           {"primary": "spine.001",    "coupled": []},
+    "chest":           {"primary": "spine.003",    "coupled": []},
+    "neck":            {"primary": "spine.005",    "coupled": [], "passive": []},
+    "head":            {"primary": "spine.006",    "coupled": [], "passive": []},
+    "mouth":           {"primary": "jaw",          "coupled": []},
+    "tongue":          {"primary": "tongue",       "coupled": []},
+    "left_shoulder":   {"primary": "shoulder.L",   "coupled": []},
+    "left_upper_arm":  {"primary": "upper_arm.L",  "coupled": []},
+    "left_lower_arm":  {"primary": "forearm.L",    "coupled": []},
+    "left_hand":       {"primary": "hand.L",       "coupled": []},
+    "right_shoulder":  {"primary": "shoulder.R",   "coupled": []},
+    "right_upper_arm": {"primary": "upper_arm.R",  "coupled": []},
+    "right_lower_arm": {"primary": "forearm.R",    "coupled": []},
+    "right_hand":      {"primary": "hand.R",       "coupled": []},
+    "left_upper_leg":  {"primary": "thigh.L",      "coupled": []},
+    "left_lower_leg":  {"primary": "shin.L",       "coupled": []},
+    "left_foot":       {"primary": "foot.L",       "coupled": []},
+    "right_upper_leg": {"primary": "thigh.R",      "coupled": []},
+    "right_lower_leg": {"primary": "shin.R",       "coupled": []},
+    "right_foot":      {"primary": "foot.R",       "coupled": []},
+    "left_eye":        {"primary": "lid.T.L",      "coupled": ["lid.B.L"]},
+    "right_eye":       {"primary": "lid.T.R",      "coupled": ["lid.B.R"]}
+  },
+  "touch_only": {},
+  "animation_only": ["tongue", "head"],
+  "posing_only": ["left_eye", "right_eye"],
+  "hand_groups": ["left_hand", "right_hand"],
+  "face_pose_grab": {
+    "left_eye": {"kind": "eye", "side": "left"},
+    "right_eye": {"kind": "eye", "side": "right"},
+    "mouth": {"kind": "jaw"}
+  },
+  "jiggle": {},
+  "sense_zones": {},
+  "sense_score_fx": [
+    {"min": 0, "max": 33, "files": ["chime_low.wav"]},
+    {"min": 34, "max": 66, "files": ["chime_medium.wav"]},
+    {"min": 67, "max": 100, "files": ["chime_high.wav"]}
+  ]
+}

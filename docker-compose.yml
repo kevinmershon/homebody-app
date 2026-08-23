@@ -1,0 +1,38 @@
+services:
+  livekit-server:
+    image: livekit/livekit-server:v1.13.3
+    command: --dev --bind 0.0.0.0
+    restart: unless-stopped
+    ports:
+      - "7880:7880" # HTTP + WebSocket signaling
+      - "7881:7881" # WebRTC / TCP
+      - "7882:7882/udp" # WebRTC / UDP
+
+  homebody-server:
+    image: ghcr.io/kevinmershon/homebody-server:latest
+    restart: unless-stopped
+    depends_on:
+      - livekit-server
+    environment:
+      HOST: 0.0.0.0
+      PORT: "9393"
+      LIVEKIT_URL: ws://livekit-server:7880
+      LIVEKIT_API_KEY: devkey
+      LIVEKIT_API_SECRET: secret
+      LIVEKIT_ROOM: homebody-dev
+      PLAYER_NAME: ${PLAYER_NAME}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      ENTITY_ID: ${ENTITY_ID}
+      AVATAR_ID: ${AVATAR_ID}
+      AVATAR_NAME: ${AVATAR_NAME}
+    ports:
+      - "9393:9393"
+    volumes:
+      - ./resources/player.json:/app/resources/player.json
+      - ./resources/avatars:/app/resources/avatars
+      - ./resources/animations:/app/resources/animations
+      - ./resources/models:/app/resources/models
+      - ./resources/effects:/app/resources/effects
+      - ./resources/decision-engines:/app/resources/decision-engines
+      - ./data:/app/data
+      - ./mempalace:/root/.mempalace

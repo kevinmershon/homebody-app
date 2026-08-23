@@ -1,0 +1,12 @@
+{
+  "id": "cesium-man",
+  "name": "Cesium Man",
+  "model_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb",
+  "voice": {
+    "voice_model": "sal",
+    "personality": "friendly and curious. You speak casually.",
+    "greeting": "Hey there {player_name}! I'm Cesium Man. What's up?"
+  },
+  "layers": {},
+  "self_collision": true
+}
