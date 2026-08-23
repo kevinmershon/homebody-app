@@ -17,6 +17,10 @@ Decision-engine behavior scripts auto-generate — nothing to do there.
 See [`resources/avatars/FIELDS.md`](resources/avatars/FIELDS.md) and
 [`example.json`](resources/avatars/example.json) for the config format.
 
+Want to see a fully rigged example, `bone_groups` and all? Download
+[Eve](https://bucket-mxo10a.s3.us-west-2.amazonaws.com/avatars/eve.zip) and
+look at her `.json`.
+
 The hard part is `bone_groups` — mapping your model's bone names to what the
 engine expects. Easiest way: connect, say **"enter rigging mode"**, and follow
 the on-screen instructions to grab and assign bones directly. It writes the

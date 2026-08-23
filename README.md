@@ -10,6 +10,13 @@ your own [OpenRouter](https://openrouter.ai/) API key.
   </a>
 </p>
 
+<p align="center">
+  <b>Eve, a fully rigged avatar</b><br>
+  <a href="https://youtu.be/kSy6PwdXeFQ">
+    <img src="https://img.youtube.com/vi/kSy6PwdXeFQ/0.jpg" alt="Eve talking">
+  </a>
+</p>
+
 ## You need
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/), running
