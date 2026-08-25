@@ -16,6 +16,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: "9393"
+      TZ: ${TZ:-UTC}
       LIVEKIT_URL: ws://livekit-server:7880
       LIVEKIT_API_KEY: devkey
       LIVEKIT_API_SECRET: secret

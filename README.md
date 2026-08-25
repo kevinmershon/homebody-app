@@ -29,7 +29,9 @@ Ships with a default avatar (Cesium Man) — no download needed to get started.
 ## Setup
 
 1. Clone/download this repo, open a terminal here.
-2. `cp .env.example .env`, fill in `OPENROUTER_API_KEY` and `PLAYER_NAME`.
+2. `cp .env.example .env`, fill in `OPENROUTER_API_KEY` and `PLAYER_NAME`. Set `TZ` to your
+   [IANA timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (e.g.
+   `America/Los_Angeles`) — without it the container defaults to UTC.
 3. Start everything and put on your headset:
    ```
    docker compose up -d
