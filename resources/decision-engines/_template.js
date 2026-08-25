@@ -16,6 +16,11 @@
 //     isAnimationPlaying: boolean,
 //     availableAnimations: string[],
 //     recentHistory: object[],
+//     stats: {
+//       needs: {hunger, energy, fun, fitness},              // 0-100 each
+//       relationship: {credibility, rapport, honesty, attraction},  // 0-100 each, 50 = neutral
+//       senseScore: number,                                 // 0-100, physical-contact arousal
+//     } | null,
 //   }
 //
 // Output shape:
@@ -29,7 +34,7 @@
 // treated the same as a thrown exception (automatic rollback on the Rust side). This template
 // never does that.
 
-const { distance, handIsRaisedNearAvatar, makeStateStore, main } = require("./_lib.js");
+const { distance, handIsRaised, makeStateStore, main } = require("./_lib.js");
 const stateStore = makeStateStore(__filename);
 
 // Proximity-reaction thresholds (meters). Tuned loosely; the LLM can rewrite these as it learns
@@ -52,7 +57,7 @@ function decide(input) {
     if (input.playerPosition && input.avatarPosition) {
       const dist = distance(input.playerPosition, input.avatarPosition);
       const wasNear = state.wasNear === true;
-      const handRaised = handIsRaisedNearAvatar(input);
+      const handRaised = handIsRaised(input);
 
       // Close AND hand raised toward the avatar: a plausible "about to be grabbed/touched" cue.
       // Step back once per crossing, not on every tick while the hand stays up.

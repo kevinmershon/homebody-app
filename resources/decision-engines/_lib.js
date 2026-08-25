@@ -14,15 +14,14 @@ function distance(a, b) {
   return Math.sqrt(dx * dx + dy * dy + dz * dz);
 }
 
-// A hand counts as "raised toward the avatar" when it's within this many meters of the avatar --
-// see _template.js's original comment for why this is an approximation, not a real
-// raised-vs-hanging-at-side classifier.
-const HAND_RAISED_DISTANCE = 1.0;
+// A hand counts as "raised" when it's above this absolute world height, independent of avatar
+// distance or the player's own height -- a single gesture classifier used for anything from
+// "about to touch/grab" up close to a wave from across the room.
+const HAND_RAISED_HEIGHT_METERS = 1.5;
 
-function handIsRaisedNearAvatar(input) {
-  if (!input.avatarPosition) return false;
+function handIsRaised(input) {
   for (const hand of [input.leftHandPosition, input.rightHandPosition]) {
-    if (hand && distance(hand, input.avatarPosition) <= HAND_RAISED_DISTANCE) return true;
+    if (hand && hand.y > HAND_RAISED_HEIGHT_METERS) return true;
   }
   return false;
 }
@@ -70,4 +69,7 @@ function main(decideFn) {
   });
 }
 
-module.exports = { distance, handIsRaisedNearAvatar, HAND_RAISED_DISTANCE, makeStateStore, main };
+module.exports = {
+  distance, handIsRaised, HAND_RAISED_HEIGHT_METERS,
+  makeStateStore, main,
+};
